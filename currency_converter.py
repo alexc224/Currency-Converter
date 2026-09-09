@@ -21,7 +21,7 @@ class currency_converter:
 
 converter = currency_converter()
 def user_questions ():
-    what = input("WHICH DO YOU WANNA DO\n============================\n\n1) CONVERT CURRENCY\n2) ADD CURENCY CONVERSION\n3) EXIT :(\n->")
+    what = input("WHICH DO YOU WANNA DO\n============================\n\n1) CONVERT CURRENCY\n2) ADD CURENCY CONVERSION\n3) EXIT 😢\n->")
     if what == "1":
         print(f"RATES:\n{converter.exchange_rates}")
         try:
