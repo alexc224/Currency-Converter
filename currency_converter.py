@@ -38,10 +38,10 @@ def user_questions ():
     elif what == "2":
         try:
             print(f"RATES:\n{converter.exchange_rates}")
-            currency = input("WHAT CURRENCY YOU WANT? (USE ABBREVIATIONS): ").upper()
+            currency = input("WHAT CURRENCY YOU WANT TO ADD? (USE ABBREVIATIONS): ").upper()
             rate = float(input("WHAT IS THE RATE????? (TO USD): "))
             converter.add_rate(currency, rate)
-            print(f"added{currency} as {converter.exchange_rates[currency]}")
+            print(f"added {currency} as {converter.exchange_rates[currency]}")
         except ValueError:
             print("couldnt add, sonion")
         user_questions()

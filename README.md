@@ -1,10 +1,8 @@
 # Currency-Converter
 curency
+
 ## WHAT IT IS!!!!
 In this Lab we wrote code to make a currency converter that uses USD as a baseline. The converter should be able to add custom currencies to the already existing list.
-
-## DIAGRAM?
-this is my diagram
 
 ## CODE
 
@@ -84,7 +82,28 @@ WHICH DO YOU WANNA DO
 3) EXIT 😢
 ->
 ```
-2) input the numbers to use the currency converter. inputting 3 exits the 
+2) input the numbers to use the currency converter.
+    - inputting "1" will give the following prompts, they have been filled out with an example:
+    ```
+    RATES:
+    {'USD': 1.0, 'EUR': 0.92, 'GBP': 0.78, 'JPY': 150.5, 'INR': 83.3}
+    HOW MUCH IS BEING CONVERTED: 1000
+    FROM WHAT CURRENCY (USE ABBREVIATIONS): usd
+    TO WHAT CURRENCY (USE ABBREVIATIONS): JPY
+    1000.00 USD is 150500.00 JPY
+    ```
+    - inputting "2" will give the following prompts, they have been filled out with an example:
+    ```
+    {'USD': 1.0, 'EUR': 0.92, 'GBP': 0.78, 'JPY': 150.5, 'INR': 83.3}
+    WHAT CURRENCY YOU WANT TO ADD? (USE ABBREVIATIONS): sonion
+    WHAT IS THE RATE????? (TO USD): 342  
+    added SONION as 342.0
+    ```
+3) inputting "3" will exit the program but won't save the currencies that you have added. It outputs the following statement:
+```
+exiting...
+im done with you...
+```
 
 ## SETTING UP AUDTOMATIC TESTS WITH GITHUB ACTIONS
 
