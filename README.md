@@ -107,6 +107,60 @@ im done with you...
 
 ## SETTING UP AUDTOMATIC TESTS WITH GITHUB ACTIONS
 
-To make automatic tests with GitHubActions, you first need to have ```pytest``` installed. If you do not have ```pytest``` installed use the command ```pip install pytest``` first. In the same folder as your test 
+To make automatic tests with GitHubActions, you first need to have ```pytest``` installed. If you do not have ```pytest``` installed use the command ```pip install pytest``` first and write your tests. 
+- In the same folder as your test and python script you will need to make a directory named ```.github```
+- Inside of this directory there will be another directory named ```workflows```, ```cd``` into this and your filepath should look like: ```...\[script_directroy]\.github\workflows```
+- Inside of ```workflows``` you will ```touch``` a new file named ```run-tests.yml```
+- Your terminal should look like this:
 
 ![alt text](<Screenshot From 2026-09-04 14-57-45.png>)
+
+- add the following text to ```run-tests.yml``` using ```nano```:
+```
+# .github/workflows/run-tests.yml
+
+name: Python Unit Tests
+
+# This tells GitHub to run the workflow when code is pushed to the 'main' branch,
+# or when a Pull Request is opened against the 'main' branch.
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  test:
+    # This specifies the operating system for the virtual machine running your code
+    runs-on: ubuntu-latest
+
+    steps:
+    # Step 1: Check out your repository's code onto the runner
+    - name: Check out repository code
+      uses: actions/checkout@v4
+
+    # Step 2: Set up the Python environment
+    - name: Set up Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: "3.11" # You can change this to match your local version
+
+    # Step 3: Install pytest (and any other requirements)
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install pytest
+        # If you add a requirements.txt later, you would uncomment the line below:
+        # pip install -r requirements.txt
+
+    # Step 4: Execute the tests
+    - name: Run tests with pytest
+      run: |
+        pytest -v
+
+```
+- save the file changes
+![alt text](<Screenshot From 2026-09-04 14-58-32.png>)
+
+- make sure that all the files and directories are where they are supposed to be and ```add```, ```commit```, and ```push``` into you repo
+![alt text](<Screenshot From 2026-09-04 15-00-12.png>)
