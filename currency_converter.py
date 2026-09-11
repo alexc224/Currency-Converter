@@ -26,6 +26,8 @@ def user_questions ():
         print(f"RATES:\n{converter.exchange_rates}")
         try:
             converting = float(input("HOW MUCH IS BEING CONVERTED: "))
+            if converting < 0:
+                            raise ValueError
             start = input("FROM WHAT CURRENCY (USE ABBREVIATIONS): ").upper()
             end = input("TO WHAT CURRENCY (USE ABBREVIATIONS): ").upper()
             converted = converter.convert(converting, start, end)
@@ -40,6 +42,8 @@ def user_questions ():
             print(f"RATES:\n{converter.exchange_rates}")
             currency = input("WHAT CURRENCY YOU WANT TO ADD? (USE ABBREVIATIONS): ").upper()
             rate = float(input("WHAT IS THE RATE????? (TO USD): "))
+            if rate < 0:
+                 raise ValueError
             converter.add_rate(currency, rate)
             print(f"added {currency} as {converter.exchange_rates[currency]}")
         except ValueError:
